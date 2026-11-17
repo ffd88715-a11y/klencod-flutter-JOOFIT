@@ -9231,16 +9231,13 @@ class _JooFitMainShellState extends State<JooFitMainShell>
             color: JooPalette.emeraldGreen.withOpacity(0.18),
             borderColor: JooPalette.emeraldGreen,
             onPressed: () {
-              final report =
-                  'تقرير بطل JOOFIT PRO (${_profile.name}) 💪🔥
-'
-                  '• الوزن الحالي: ${_profile.weightKg} كجم (الهدف: ${_profile.targetWeightKg} كجم)
-'
-                  '• سلسلة الالتزام: $_currentWorkoutStreak أيام تمرين مسجلة
-'
-                  '• جدول التمرين: ${_activeSystem.name} (${_profile.workoutDaysPerWeek} أيام/أسبوع)
-'
-                  '• البروتين اليومي: $_proteinGramsToday / ${_profile.dailyProteinTargetGrams} جرام';
+              final report = [
+                'تقرير بطل JOOFIT PRO (${_profile.name}) 💪🔥',
+                '• الوزن الحالي: ${_profile.weightKg} كجم (الهدف: ${_profile.targetWeightKg} كجم)',
+                '• سلسلة الالتزام: $_currentWorkoutStreak أيام تمرين مسجلة',
+                '• جدول التمرين: ${_activeSystem.name} (${_profile.workoutDaysPerWeek} أيام/أسبوع)',
+                '• البروتين اليومي: $_proteinGramsToday / ${_profile.dailyProteinTargetGrams} جرام',
+              ].join('\n');
               Clipboard.setData(ClipboardData(text: report));
               _showSmartBanner(
                 title: 'تم نسخ تقرير تقدمك الشامل ✓',
@@ -10059,16 +10056,13 @@ class _JooFitMainShellState extends State<JooFitMainShell>
                       child: JooPressableButton(
                         color: JooPalette.cardElevated,
                         onPressed: () {
-                          final summary =
-                              'خلصت تمرينة النهاردة على JOOFIT PRO 💪🔥
-'
-                              '• التمرينة: ${log.workoutTitle}
-'
-                              '• المجاميع: ${log.completedSetsCount} مجموعة
-'
-                              '• إجمالي الأوزان المرفوعة: ${log.totalVolumeKg.toStringAsFixed(0)} كجم
-'
-                              '• السعرات المحروقة: $burnedCalories سعرة حرارية';
+                          final summary = [
+                            'خلصت تمرينة النهاردة على JOOFIT PRO 💪🔥',
+                            '• التمرينة: ${log.workoutTitle}',
+                            '• المجاميع: ${log.completedSetsCount} مجموعة',
+                            '• إجمالي الأوزان المرفوعة: ${log.totalVolumeKg.toStringAsFixed(0)} كجم',
+                            '• السعرات المحروقة: $burnedCalories سعرة حرارية',
+                          ].join('\n');
                           Clipboard.setData(ClipboardData(text: summary));
                           Navigator.pop(ctx);
                           _showSmartBanner(
